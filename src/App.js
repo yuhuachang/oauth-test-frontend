@@ -157,7 +157,10 @@ const App = () => {
     })
 
     if (process.env.REACT_APP_AUTO_REGISTER_AFTER_LOGIN) {
-      authorizeLineBot();
+      // Wait 0.5 second for LINE login.
+      setTimeout(() => {
+        authorizeLineBot();
+      }, 500);
     } else {
       console.log('Redirect again to clear out the access token from url.');
       window.location.href = window.location.origin;
